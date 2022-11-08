@@ -9,7 +9,7 @@ const routes: Routes = [
       path: '',
       component: AdminLayoutComponent,
       children: [
-        { path: '', redirectTo: 'dashboard' },
+        { path: '', redirectTo: 'dashboard', pathMatch:'full' },
         { path: 'dashboard', component: AdminDashboardComponent },
         {
           path: 'course/:courseId',

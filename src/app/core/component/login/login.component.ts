@@ -40,7 +40,13 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.payload).subscribe({
       next: (res: any) => {
         if (res.success) {
-          this.router.navigate(['/layout/admin']);
+          if(res.data.role == 'Admin') {
+            this.router.navigate(['/layout/admin']);
+            return;
+          }
+         
+          this.router.navigate(['/layout/user']);
+         
         }
       },
       error: (err: any) => {

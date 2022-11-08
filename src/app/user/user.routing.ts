@@ -8,7 +8,7 @@ const routes: Routes = [
       path: '',
       component: UserLayoutComponent,
       children: [
-        { path: '', redirectTo: 'dashboard' },
+        { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         { path: 'dashboard', component: UserDashboardComponent }
       ],
     },

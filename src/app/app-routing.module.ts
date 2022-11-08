@@ -18,20 +18,20 @@ const routes: Routes = [
     path: 'layout',
     component: PostLoginLayoutComponent,
     children: [
-      // { path: '', redirectTo: '/user-dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/user-dashboard', pathMatch: 'full' },
       {
         path: 'user',
         loadChildren: LazyUserModule,
         canActivate: [AuthGuardService],
         // allow access to role matching USER only
-        data: { allowedRoles: ['USER'] },
+        data: { allowedRoles: ['Student'] },
       },
       {
         path: 'admin',
         loadChildren: LazyAdminModule,
         canActivate: [AuthGuardService],
         // allow access to role matching ADMIN only
-        data: { allowedRoles: ['ADMIN']}
+        data: { allowedRoles: ['Admin']}
       },
     ],
   },
