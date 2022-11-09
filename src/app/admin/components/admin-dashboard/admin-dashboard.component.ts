@@ -33,8 +33,8 @@ export class AdminDashboardComponent implements OnInit {
   onModifyCourse(id:number){
     this.router.navigate([`/layout/admin/course/${id}`]);
   }
-  onDeleteCourse(id:number){
-
+  onAssignCourse(id:number){
+    this
   }
   onAddCourse(){
     this.router.navigate([`/layout/admin/course`]);

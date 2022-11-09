@@ -9,7 +9,9 @@ import { AuthService } from 'src/app/core/service/auth.service';
 })
 export class PostLoginHeaderComponent implements OnInit {
   @Input() userType: string = '';
-
+  simpleContent = 'S';
+  overlap = true;
+  disabled = true;
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -17,5 +19,6 @@ export class PostLoginHeaderComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+  openNotification(){}
 
 }

@@ -114,15 +114,7 @@
             <mat-error *ngIf="rating?.invalid && rating?.touched" class="alert alert-danger">
                 Rating is required
             </mat-error>
-            <!-- TermValidators
-                  {{term?.errors?.TermValidators}} -->
-            <!-- <mat-error *ngIf="term?.errors?.TermValidators && term?.touched" class="alert alert-danger">
-                   Term Should be less or equal to 30 years
-                  </mat-error> -->
           </mat-form-field>
-  
-  
-  
           <div class="row justify-center mb-4">
             <button mat-raised-button [disabled]="courseForm?.invalid" color="primary"
               (click)="onEditMode ? onEdit(): onSubmit()">{{onEditMode ? "EDIT": "ADD"}}</button>

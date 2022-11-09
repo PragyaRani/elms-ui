@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressBarMode } from '@angular/material/progress-bar';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { CourseService } from 'src/app/core/service/course.service';
 @Component({
@@ -10,13 +13,17 @@ import { CourseService } from 'src/app/core/service/course.service';
 export class UserDashboardComponent implements OnInit {
   displayedColumns: string[] = ['coursename', 'duedate', 'progress', 'actions'];
   dataSource;
-  constructor(private courseService:CourseService, public authService:AuthService) { }
+  color: ThemePalette = 'primary';
+  mode: ProgressBarMode = 'determinate';
+  value = 50;
+  bufferValue = 75;
+  constructor(private courseService:CourseService, public authService:AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     let student = this.authService.userValue;
     this.courseService.getStudentEnrollCourse(student.id).subscribe({
       next: (res: any) => {
-       
         this.dataSource = res;
         console.log(res);
       },
@@ -27,8 +34,8 @@ export class UserDashboardComponent implements OnInit {
     });
   }
   // dataSource = USER_DATA;
-  public onOpenCourse(){
-
+  public onOpenCourse(courseId:number){
+      this.router.navigate([`/layout/user/enrollcourse/${courseId}`]);
   }
 
 }

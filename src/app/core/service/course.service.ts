@@ -51,6 +51,14 @@ export class CourseService {
       })
     );
   }
+  //https://localhost:44382/api/v1/enrolment/courseware/4
+  public studentEnrollCourse(payload:any): Observable<any> {
+    return this.http.put(`https://localhost:44382/api/v1/enrolment/courseware/${payload.enrollCourseId}`, payload).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
 
 
 

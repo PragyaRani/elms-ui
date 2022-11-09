@@ -1,0 +1,92 @@
+<div class="row f-dir-col">
+    <app-message-alert *ngIf="message?.show" class="ml-2 mr-2" [show]="message?.show" [message]="message?.message"
+      [type]="message?.type"></app-message-alert>
+  </div>
+  <div>
+    <div>
+      <mat-card>
+        <h2>Enrolled Course</h2>
+        <form [formGroup]="courseForm">
+          <!-- only for EDIT form -->
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>Created Date</mat-label>
+            <input matInput type="text" formControlName="creationDate"  readonly id="first-name-search-control"
+            autocomplete="off" />
+          </mat-form-field>
+  
+          <hr />
+  
+          <h3>Course Information</h3>
+  
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>COURSE NAME</mat-label>
+            <input matInput type="text" formControlName="courseName" id="courseName" readonly/>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>AUTHOR</mat-label>
+            <input matInput type="text" formControlName="author" id="author" readonly/>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+            <mat-label>LANGUAGE</mat-label>
+            <input matInput type="text" formControlName="language" id="language"  readonly
+              autocomplete="off" />
+          </mat-form-field>
+  
+          <hr />
+  
+        
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>CATEGORY</mat-label>
+            <input matInput type="text" formControlName="category" id="category"  readonly
+              autocomplete="off" />
+           </mat-form-field>
+          
+          <!-- SubCategory -->
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>SUB-CATEGORY</mat-label>
+            <input matInput type="text" formControlName="subcategory" id="subcategory" readonly
+              autocomplete="off" />
+          </mat-form-field>
+
+          <!-- Contents -->
+
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>SUB-CATEGORY</mat-label>
+            <input matInput type="text" formControlName="content" id="content" readonly
+            autocomplete="off" />
+            </mat-form-field>
+
+          <!-- Topics -->
+
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label> TOPIC</mat-label>
+            <input matInput type="text" formControlName="topicName" id="topicName" readonly
+            autocomplete="off" />
+           </mat-form-field>
+  
+  
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>HOURS</mat-label>
+            <input matInput type="number" formControlName="hours" id="first-name-search-control" readonly autocomplete="off" />
+            <mat-hint align="start">In Hours</mat-hint>
+            </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+            <mat-label>RATING</mat-label>
+            <input matInput type="number" formControlName="rating" id="first-name-search-control" readonly autocomplete="off" />
+            </mat-form-field>
+  
+  
+  
+          <div class="row justify-center mb-4">
+            <button mat-raised-button [disabled]="courseForm?.invalid" color="primary"
+              (click)="onEnrollCourse()">Enroll Course</button>
+            <button mat-raised-button color="secondary" (click)="onCancel()">CANCEL</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  
