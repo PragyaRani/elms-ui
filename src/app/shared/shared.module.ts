@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import {MatBadgeModule} from '@angular/material/badge';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { CustomLoaderComponent } from './custom-loader/custom-loader.component';
-import { MessageAlertComponent } from './message-alert/message-alert.component';
+import { CustomLoaderComponent } from './components/custom-loader/custom-loader.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EnrollCourseComponent } from './enroll-course/enroll-course.component';
 const sharedComponents = [
   CustomLoaderComponent,
-  MessageAlertComponent,
-  PageNotFoundComponent
+  PageNotFoundComponent,
+  SidenavComponent,
 ];
 
 // const sharedServices = [];
@@ -28,20 +28,20 @@ const materialComponentModules = [
   MatButtonModule,
   MatIconModule,
   MatCardModule,
-  MatProgressSpinnerModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSidenavModule,
+  MatTooltipModule,
   MatTableModule,
   MatSelectModule,
-  MatProgressBarModule,
+
   MatTooltipModule,
-  MatBadgeModule
-  
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     ...materialComponentModules,
@@ -55,7 +55,7 @@ const materialComponentModules = [
   // providers: [sharedServices],
   declarations: [
     ...sharedComponents, 
-    CustomLoaderComponent
+    CustomLoaderComponent, EnrollCourseComponent
   ],
 })
 export class SharedModule {}

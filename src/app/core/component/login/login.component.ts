@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
 
   onAttemptLogin(): void {
     this.clearMessage();
+    this.router.navigate(['/layout/user']);
+    return;
+    
     this.authService.login(this.payload).subscribe({
       next: (res: any) => {
         if (res.success) {

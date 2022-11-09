@@ -1,74 +1,69 @@
-<div class="row f-dir-col">
-    <app-message-alert *ngIf="message?.show" class="ml-2 mr-2" [show]="message?.show" [message]="message?.message"
-      [type]="message?.type"></app-message-alert>
-  </div>
+<div>
   <div>
-    <div>
-      <mat-card>
-        <h2>{{onEditMode ? 'Edit Course' :'Add Course'}}</h2>
-        <form [formGroup]="courseForm">
-          <!-- only for EDIT form -->
-          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
-            <mat-label>Created Date</mat-label>
-            <input matInput type="text" formControlName="creationDate" readonly id="first-name-search-control"
-              autocomplete="off" />
-          </mat-form-field>
-  
-          <hr />
-  
-          <h3>Course Information</h3>
-  
-          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
-            <mat-label>COURSE NAME</mat-label>
-            <input matInput type="text" formControlName="courseName" id="courseName" autocomplete="off"/>
-            <mat-error *ngIf="courseName?.invalid && courseName?.touched" class="alert alert-danger">
-              Course name is required
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
-            <mat-label>AUTHOR</mat-label>
-            <input matInput type="text" formControlName="author" id="author" autocomplete="off"/>
-            <mat-error *ngIf="author?.invalid && author?.touched" class="alert alert-danger">
-                Author name is required
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
-            <mat-label>LANGUAGE</mat-label>
-            <input matInput type="text" formControlName="language" id="language"
-              autocomplete="off" />
-            <mat-error *ngIf="language?.invalid && language?.touched" class="alert alert-danger">
-                Language is required
-            </mat-error>
-          </mat-form-field>
-  
-          <hr />
-  
-        
-          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
-            <mat-label>CATEGORY</mat-label>
-            <mat-select formControlName="category" name="category" required [disabled]="onEditMode">
-              <mat-option *ngFor="let category of categories" [value]="category.label">
-                {{category.label}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="category?.invalid && category?.touched" class="alert alert-danger">
-                Category is required
-            </mat-error>
-          </mat-form-field>
-          
-          <!-- SubCategory -->
-          <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
-            <mat-label>SUB-CATEGORY</mat-label>
-            <mat-select formControlName="subcategory" name="subcategory" required [disabled]="onEditMode">
-              <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.label">
-                {{subcategory.label}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="subcategory?.invalid && subcategory?.touched" class="alert alert-danger">
-                SubCategory is required
-            </mat-error>
-          </mat-form-field>
+    <mat-card>
+      <h2>{{onEditMode ? 'Edit Course' :'Add Course'}}</h2>
+      <form [formGroup]="courseForm">
+        <!-- only for EDIT form -->
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>Created Date</mat-label>
+          <input matInput type="text" formControlName="creationDate" readonly id="first-name-search-control"
+            autocomplete="off" />
+        </mat-form-field>
+
+        <hr />
+
+        <h3>Course Information</h3>
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>COURSE NAME</mat-label>
+          <input matInput type="text" formControlName="courseName" id="courseName" autocomplete="off" />
+          <mat-error *ngIf="courseName?.invalid && courseName?.touched" class="alert alert-danger">
+            Course name is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>AUTHOR</mat-label>
+          <input matInput type="text" formControlName="author" id="author" autocomplete="off" />
+          <mat-error *ngIf="author?.invalid && author?.touched" class="alert alert-danger">
+            Author name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+          <mat-label>LANGUAGE</mat-label>
+          <input matInput type="text" formControlName="language" id="language" autocomplete="off" />
+          <mat-error *ngIf="language?.invalid && language?.touched" class="alert alert-danger">
+            Language is required
+          </mat-error>
+        </mat-form-field>
+
+        <hr />
+
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>CATEGORY</mat-label>
+          <mat-select formControlName="category" name="category" required [disabled]="onEditMode">
+            <mat-option *ngFor="let category of categories" [value]="category.label">
+              {{category.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="category?.invalid && category?.touched" class="alert alert-danger">
+            Category is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- SubCategory -->
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>SUB-CATEGORY</mat-label>
+          <mat-select formControlName="subcategory" name="subcategory" required [disabled]="onEditMode">
+            <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.label">
+              {{subcategory.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="subcategory?.invalid && subcategory?.touched" class="alert alert-danger">
+            SubCategory is required
+          </mat-error>
+        </mat-form-field>
 
           <!-- Contents -->
 
@@ -123,5 +118,130 @@
         </form>
       </mat-card>
     </div>
+    <mat-card>
+      <h2>{{onEditMode ? 'Edit Course' :'Add Course'}}</h2>
+      <form [formGroup]="courseForm">
+        <!-- only for EDIT form -->
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>Created Date</mat-label>
+          <input matInput type="text" formControlName="creationDate" readonly id="first-name-search-control"
+            autocomplete="off" />
+        </mat-form-field>
+
+        <hr />
+
+        <h3>Course Information</h3>
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>COURSE NAME</mat-label>
+          <input matInput type="text" formControlName="courseName" id="courseName" autocomplete="off" />
+          <mat-error *ngIf="courseName?.invalid && courseName?.touched" class="alert alert-danger">
+            Course name is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>AUTHOR</mat-label>
+          <input matInput type="text" formControlName="author" id="author" autocomplete="off" />
+          <mat-error *ngIf="author?.invalid && author?.touched" class="alert alert-danger">
+            Author name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+          <mat-label>LANGUAGE</mat-label>
+          <input matInput type="text" formControlName="language" id="language" autocomplete="off" />
+          <mat-error *ngIf="language?.invalid && language?.touched" class="alert alert-danger">
+            Language is required
+          </mat-error>
+        </mat-form-field>
+
+        <hr />
+
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>CATEGORY</mat-label>
+          <mat-select formControlName="category" name="category" required [disabled]="onEditMode">
+            <mat-option *ngFor="let category of categories" [value]="category.label">
+              {{category.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="category?.invalid && category?.touched" class="alert alert-danger">
+            Category is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- SubCategory -->
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>SUB-CATEGORY</mat-label>
+          <mat-select formControlName="subcategory" name="subcategory" required [disabled]="onEditMode">
+            <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.label">
+              {{subcategory.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="subcategory?.invalid && subcategory?.touched" class="alert alert-danger">
+            SubCategory is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Contents -->
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>SUB-CATEGORY</mat-label>
+          <mat-select formControlName="content" name="content" required [disabled]="onEditMode">
+            <mat-option *ngFor="let content of contents" [value]="content.label">
+              {{content.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="content?.invalid && content?.touched" class="alert alert-danger">
+            Content is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Topics -->
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label> TOPIC</mat-label>
+          <mat-select formControlName="topicName" name="topicName" required [disabled]="onEditMode">
+            <mat-option *ngFor="let topic of topics" [value]="topic.label">
+              {{topic.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="topicName?.invalid && topicName?.touched" class="alert alert-danger">
+            Topic is required
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>HOURS</mat-label>
+          <input matInput type="number" formControlName="hours" id="first-name-search-control" autocomplete="off" />
+          <mat-error *ngIf="hours?.invalid && hours?.touched" class="alert alert-danger">
+            Hours is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+          <mat-label>RATING</mat-label>
+          <input matInput type="number" formControlName="rating" id="first-name-search-control" autocomplete="off" />
+          <mat-hint align="start">In Hours</mat-hint>
+          <mat-error *ngIf="rating?.invalid && rating?.touched" class="alert alert-danger">
+            Rating is required
+          </mat-error>
+          <!-- TermValidators
+                  {{term?.errors?.TermValidators}} -->
+          <!-- <mat-error *ngIf="term?.errors?.TermValidators && term?.touched" class="alert alert-danger">
+                   Term Should be less or equal to 30 years
+                  </mat-error> -->
+        </mat-form-field>
+
+
+
+        <div class="row justify-center mb-4">
+          <button mat-raised-button [disabled]="courseForm?.invalid" color="primary"
+            (click)="onEditMode ? onEdit(): onSubmit()">{{onEditMode ? "EDIT": "ADD"}}</button>
+          <button mat-raised-button color="secondary" (click)="onCancel()">CANCEL</button>
+        </div>
+      </form>
+    </mat-card>
   </div>
-  
+</div>
