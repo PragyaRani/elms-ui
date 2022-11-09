@@ -1,20 +1,58 @@
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+@Injectable({
+  providedIn: 'root',
+})
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-
-export class LoaderService {
+export class CourseService {
+  
   private loading = new BehaviorSubject<boolean>(false);
-  loading$ = this.loading.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient){}
 
-  show = () => {
-    this.loading.next(true);
-  };
+  public getCourseDetails():Observable<any>{
 
-  hide = () => {
-    this.loading.next(false);
-  };
+    //https://localhost:44382/api/v1/courseware/catalogue
+    return this.http.get('https://localhost:44382/api/v1/courseware/catalogue').pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
+  getCoursebyId(id:number) : Observable<any>{
+    //'https://localhost:44382/api/v1/courseware/catalogue/' +id
+    return this.http.get(`https://localhost:44382/api/v1/courseware/catalogue/${id}`).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
+
+  modifyCourse(payload: any) : Observable<any>{
+    return this.http.put(`https://localhost:44382/api/v1/courseware/course/${payload.id}`, payload).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
+  public addCourse(payload: any): Observable<any> {
+    return this.http.post('https://localhost:44382/api/v1/courseware/admin', [payload]).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
+  public getStudentEnrollCourse(studentId:number): Observable<any> {
+    return this.http.get(`https://localhost:44382/api/v1/enrolment/student/${studentId}`).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
+
+
+
+  
 }

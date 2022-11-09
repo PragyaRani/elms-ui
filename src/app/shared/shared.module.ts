@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CustomLoaderComponent } from './custom-loader/custom-loader.component';
 import { MessageAlertComponent } from './message-alert/message-alert.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EnrollCourseComponent } from './enroll-course/enroll-course.component';
 const sharedComponents = [
   CustomLoaderComponent,
   MessageAlertComponent,
@@ -53,7 +54,7 @@ const materialComponentModules = [
   // providers: [sharedServices],
   declarations: [
     ...sharedComponents, 
-    CustomLoaderComponent
+    CustomLoaderComponent, EnrollCourseComponent
   ],
 })
 export class SharedModule {}

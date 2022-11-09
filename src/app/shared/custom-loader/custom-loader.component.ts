@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderService } from 'src/app/core/service/course.service';
+import { LoaderService } from 'src/app/core/service/loader.service';
 
 @Component({
   selector: 'app-custom-loader',

@@ -1,1 +1,30 @@
-<p>admin-dashboard works!</p>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Language</th>
+        <th>CreatedDate</th>
+    </tr>
+    <tr *ngFor="let course of Courses">
+        <td>{{course.name}}</td>
+        <td>{{course.author}}</td>
+        <td>{{course.language}}</td>
+        <td>{{course.createdDate}}</td>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
+            <td mat-cell>
+              <button mat-flat-button color="secondary" aria-label="EDIT">
+                <mat-icon (click)="onModifyCourse(course.courseId)">edit</mat-icon>
+              </button>
+            </td>
+            <td mat-cell>
+                <button mat-flat-button color="secondary" aria-label="DELETE">
+                  <mat-icon (click)="onDeleteCourse(course.courseId)">delete</mat-icon>
+                </button>
+              </td>
+          </ng-container>
+    </tr>
+</table>
+<div class="row justify-flex-end mr-2 mt-2">
+  <button mat-raised-button color="primary" (click)="onAddCourse()">ADD A LOAN</button>
+</div>

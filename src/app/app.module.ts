@@ -13,9 +13,10 @@ import { SharedModule } from './shared/shared.module';
 import { TokenInterceptorService } from './core/helper/token-interceptor.service';
 import { PostLoginHeaderComponent } from './core/component/layout/post-login-layout/partials/post-login-header/app-post-login-header.component';
 import { PostLoginFooterComponent } from './core/component/layout/post-login-layout/partials/post-login-footer/post-login-footer.component';
-import { LoaderService } from './core/service/course.service';
+
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderService } from './core/service/loader.service';
 
 const coreComponents = [
   // pre-login
@@ -41,7 +42,6 @@ const coreServices = [LoaderService];
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    BrowserModule,
     BrowserAnimationsModule,
     FormsModule
   ],
