@@ -1,0 +1,10 @@
+<div class="sidenav">
+  <ul class="sidenav-items-list">
+    <li class="sidenav-item" *ngFor="let link of sidenavLinks">
+      <a [routerLink]="[link.path]" routerLinkActive="active" class="sidenav-link">
+        <mat-icon>{{link.icon}}</mat-icon>
+        {{link.title}}
+      </a>
+    </li>
+  </ul>
+</div>

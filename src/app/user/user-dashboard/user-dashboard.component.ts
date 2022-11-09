@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressBarMode } from '@angular/material/progress-bar';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { CourseService } from 'src/app/core/service/course.service';
 export interface PeriodicElement {
@@ -29,33 +26,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./user-dashboard.component.scss'],
 })
 export class UserDashboardComponent implements OnInit {
-  onFormMode: boolean = false;
-  isUpdateEnabled: boolean = false;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  color: ThemePalette = 'primary';
-  mode: ProgressBarMode = 'determinate';
-  value = 50;
-  bufferValue = 75;
-  constructor(,
-    private router: Router) {}
-
-  ngOnInit(): void {
-    let student = this.authService.userValue;
-    this.courseService.getStudentEnrollCourse(student.id).subscribe({
-      next: (res: any) => {
-        this.dataSource = res;
-        console.log(res);
-      },
-      error: (err: any) => {
-        if (err && !err.success)
-        console.log(err);
-      },
-    });
-  }
-  // dataSource = USER_DATA;
-  public onOpenCourse(courseId:number){
-      this.router.navigate([`/layout/user/enrollcourse/${courseId}`]);
   onFormMode: boolean = false;
   isUpdateEnabled: boolean = false;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];

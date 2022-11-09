@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -12,10 +12,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-import {MatBadgeModule} from '@angular/material/badge';
+
 import { CustomLoaderComponent } from './components/custom-loader/custom-loader.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EnrollCourseComponent } from './enroll-course/enroll-course.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 const sharedComponents = [
   CustomLoaderComponent,
   PageNotFoundComponent,
@@ -34,8 +35,6 @@ const materialComponentModules = [
   MatTooltipModule,
   MatTableModule,
   MatSelectModule,
-
-  MatTooltipModule,
 ];
 
 @NgModule({
@@ -54,8 +53,9 @@ const materialComponentModules = [
   ],
   // providers: [sharedServices],
   declarations: [
-    ...sharedComponents, 
-    CustomLoaderComponent, EnrollCourseComponent
+    ...sharedComponents,
+    CustomLoaderComponent,
+    EnrollCourseComponent,
   ],
 })
 export class SharedModule {}

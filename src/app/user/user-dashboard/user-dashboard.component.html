@@ -37,48 +37,6 @@
   </mat-card>
 </ng-container>
 
-<<<<<<< Updated upstream
-
-  <div class="example-container mat-elevation-z8">  
-    <mat-table #table [dataSource]="dataSource">
-  
-      <!-- Position Column -->
-      <ng-container matColumnDef="coursename">
-        <mat-header-cell *matHeaderCellDef>Course Name</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.courseName}} </mat-cell>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="duedate">
-        <mat-header-cell *matHeaderCellDef>Due Date</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.created}} </mat-cell>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="progress">
-        <mat-header-cell *matHeaderCellDef> PROGRESS </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-progress-bar
-        [color]="color"
-        [mode]="mode"
-        [value]="value"
-        [bufferValue]="bufferValue"></mat-progress-bar>
-        </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <button mat-flat-button color="secondary" aria-label="OPEN">
-                <mat-icon (click)="onOpenCourse(element.id)">visibility</mat-icon>
-            </button>
-        </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
-=======
 <ng-template #formTemplate>
   <mat-card class="mt-4">
     <mat-card-header>
@@ -93,4 +51,3 @@
     </mat-card-actions>
   </mat-card>
 </ng-template>
->>>>>>> Stashed changes
