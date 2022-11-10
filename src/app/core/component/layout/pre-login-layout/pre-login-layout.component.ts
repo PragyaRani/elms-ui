@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pre-login-layout.component.scss']
 })
 export class PreLoginLayoutComponent implements OnInit {
-
+ isRegister = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onRegister():void {
+    this.isRegister = true;
   }
 
 }

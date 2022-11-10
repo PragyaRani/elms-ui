@@ -1,0 +1,122 @@
+<div class="row justify-center">
+    <div class="col-12-sm col-6-md col-6-lg col-6-xl p-2">
+        <mat-card class="bg-primary text-white">
+            <mat-card-title>E-LMS</mat-card-title>
+            <mat-card-content>
+                <h3>Overview</h3>
+                <p>This is a E-Libarary Manangement System. Here USER can view and enroll course and ADMIN can view the
+                    Students
+                    and view/ add/ edit/
+                    courses.</p>
+                <h3>Please register to view and enroll courses</h3>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-12-sm col-6-md col-6-lg col-6-xl p-2">
+        <mat-card class="bg-secondary text-black p-2">
+            <app-message-alert class="ml-2 mr-2" *ngIf="message.show" [show]="message.show" [message]="message.message"
+                [type]="message.type"></app-message-alert>
+
+            <mat-card-title class="mt-1 mb-1">Register</mat-card-title>
+            <form [formGroup]="registerForm">
+                <!-- only for EDIT form -->
+                <!-- <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+              <mat-label>Created Date</mat-label>
+              <input matInput type="text" formControlName="creationDate" readonly id="first-name-search-control"
+                autocomplete="off" />
+            </mat-form-field> -->
+
+                <hr />
+
+                <h3>User Information</h3>
+
+                <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+                    <mat-label>NAME</mat-label>
+                    <input matInput type="text" formControlName="name" id="name" autocomplete="off" />
+                    <mat-error *ngIf="name?.invalid && name?.touched" class="alert alert-danger">
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <hr />
+
+                <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+                    <mat-label>ADDRESS</mat-label>
+                    <input matInput type="text" formControlName="address" id="address" autocomplete="off" />
+                    <mat-error *ngIf="address?.invalid && address?.touched" class="alert alert-danger">
+                        Address is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+                    <mat-label>CITY</mat-label>
+                    <input matInput type="text" formControlName="city" id="city" autocomplete="off" />
+                    <mat-error *ngIf="city?.invalid && city?.touched" class="alert alert-danger">
+                        city is required
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+                <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+                    <mat-label>PIN</mat-label>
+                    <input matInput type="number" formControlName="pin" id="pin" autocomplete="off" />
+                    <mat-error *ngIf="pin?.invalid && pin?.touched" class="alert alert-danger">
+                        Pin is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+                    <mat-label>STATE</mat-label>
+                    <input matInput type="text" formControlName="state" id="state" autocomplete="off" />
+                    <mat-error *ngIf="state?.invalid && state?.touched" class="alert alert-danger">
+                        State is required
+                    </mat-error>
+                </mat-form-field>
+
+                <hr />
+                <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+                    <mat-label>PHONE</mat-label>
+                    <input matInput type="text" formControlName="phone" id="phone" autocomplete="off" />
+                    <mat-error *ngIf="phone?.invalid && phone?.touched" class="alert alert-danger">
+                        Phone is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="col-12-sm col-6-md col-6-lg col-6-xl p-1">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" formControlName="email" id="email" autocomplete="off" />
+                    <mat-error *ngIf="email?.invalid && email?.touched" class="alert alert-danger">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+                    <mat-label>PASSWORd</mat-label>
+                    <input matInput type="text" formControlName="password" id="first-name-search-control"
+                        autocomplete="off" />
+                    <mat-error *ngIf="password?.invalid && password?.touched" class="alert alert-danger">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
+                    <mat-label>CONFIRM PASSWORd</mat-label>
+                    <input matInput type="text" formControlName="confirmpassword" id="first-name-search-control"
+                        autocomplete="off" />
+                    <mat-hint align="start">Password and confirm Password should match</mat-hint>
+                    <mat-error *ngIf="confirmpassword?.invalid && confirmpassword?.touched" class="alert alert-danger">
+                        Confirm Password is required
+                    </mat-error>
+                </mat-form-field> -->
+                <div class="row justify-center mb-4">
+                    <button mat-raised-button [disabled]="registerForm?.invalid" color="primary"
+                        (click)="onSubmit()">REGISTER</button>
+                    <button mat-raised-button color="secondary" (click)="onCancel()">CANCEL</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

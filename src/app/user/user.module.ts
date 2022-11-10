@@ -7,6 +7,7 @@ import { UserRoutingModule } from "./user.routing";
 import { EnrollCourseComponent } from './enroll-course/enroll-course.component';
 import { RouterModule } from "@angular/router";
 import { CourseOverviewComponent } from './course-overview/course-overview.component';
+import { ImcompleteCourseComponent } from './imcomplete-course/imcomplete-course.component';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { CourseOverviewComponent } from './course-overview/course-overview.compo
       UserDashboardComponent,
       EnrollCourseComponent,
       CourseOverviewComponent,
+      ImcompleteCourseComponent,
     ],
     imports: [CommonModule, UserRoutingModule, SharedModule,RouterModule],
   })

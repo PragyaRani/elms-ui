@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AddTemplateComponent } from "./add-template/add-template.component";
 import { AssignCourseComponent } from "./assign-course/assign-course.component";
 import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
@@ -23,6 +24,10 @@ const routes: Routes = [
         {
           path: 'assign/:courseId',
           component: AssignCourseComponent,
+        },
+        {
+          path: 'addtemplate',
+          component: AddTemplateComponent,
         }
       ],
     },

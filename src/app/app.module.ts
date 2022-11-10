@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderService } from './core/service/loader.service';
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './core/component/register/register.component';
 
 const coreComponents = [
   // pre-login
@@ -36,7 +37,8 @@ const coreServices = [LoaderService];
   declarations: [
     AppComponent,
     LoginComponent,
-    ...coreComponents
+    ...coreComponents,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -63,4 +63,5 @@ export class LoginComponent implements OnInit {
   private clearMessage(): void {
     this.message = { show: false, message: '', type: 'INFO' };
   }
+  
 }

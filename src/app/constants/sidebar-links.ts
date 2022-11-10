@@ -11,7 +11,7 @@ export const STUDENT_SIDENAV_LINKS: any[] = [
   },
   {
     title: 'Courses Resource: Completed',
-    path: '/user/dashboard',
+    path: '/layout/user/completecourse',
     icon: 'topic',
   },
 ];
@@ -27,8 +27,8 @@ export const INSTRUCTOR_SIDENAV_LINKS: any[] = [
     icon: 'task',
   },
   {
-    title: 'Add Course',
-    path: '/layout/admin/course',
+    title: 'Add New Course From Template',
+    path: '/layout/admin/addtemplate',
     icon: 'topic',
   },
 ];

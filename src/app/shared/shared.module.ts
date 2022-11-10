@@ -29,11 +29,13 @@ const materialComponentModules = [
   MatTooltipModule,
   MatBadgeModule,
   MatSidenavModule,
-  MatMenuModule
+  MatMenuModule,
+  MatFileUploadModule 
 
 ];
 
 import { CustomLoaderComponent, MessageAlertComponent, PageNotFoundComponent, SidenavComponent } from './components';
+import { MatFileUploadModule } from 'angular-material-fileupload';
 const sharedComponents = [
   CustomLoaderComponent,
   MessageAlertComponent,

@@ -26,6 +26,13 @@ export class AuthService {
       })
     );
   }
+  public register(payload: any): Observable<any> {
+    return this.http.post('https://localhost:44382/api/v1/elms/user/signup', payload).pipe(
+      map((loanResponse: any) => {
+        return loanResponse;
+      })
+    );
+  }
   public logout(): void {
     // remove user from local storage and set userSubject to null
     localStorage.removeItem('_USERDATA');
