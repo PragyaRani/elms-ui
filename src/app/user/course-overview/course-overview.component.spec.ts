@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreLoginHeaderComponent } from './pre-login-header.component';
+import { CourseOverviewComponent } from './course-overview.component';
 
-describe('PreLoginHeaderComponent', () => {
-  let component: PreLoginHeaderComponent;
-  let fixture: ComponentFixture<PreLoginHeaderComponent>;
+describe('CourseOverviewComponent', () => {
+  let component: CourseOverviewComponent;
+  let fixture: ComponentFixture<CourseOverviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PreLoginHeaderComponent ]
+      declarations: [ CourseOverviewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PreLoginHeaderComponent);
+    fixture = TestBed.createComponent(CourseOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

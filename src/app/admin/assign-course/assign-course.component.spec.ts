@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PostLoginFooterComponent } from './post-login-footer.component';
 
+import { AssignCourseComponent } from './assign-course.component';
 
-
-describe('FooterComponent', () => {
-  let component: PostLoginFooterComponent;
-  let fixture: ComponentFixture<PostLoginFooterComponent>;
+describe('AssignCourseComponent', () => {
+  let component: AssignCourseComponent;
+  let fixture: ComponentFixture<AssignCourseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostLoginFooterComponent ]
+      declarations: [ AssignCourseComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostLoginFooterComponent);
+    fixture = TestBed.createComponent(AssignCourseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

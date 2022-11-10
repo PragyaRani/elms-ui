@@ -17,6 +17,7 @@ import { PostLoginFooterComponent } from './core/component/layout/post-login-lay
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderService } from './core/service/loader.service';
+import { RouterModule } from '@angular/router';
 
 const coreComponents = [
   // pre-login
@@ -43,7 +44,8 @@ const coreServices = [LoaderService];
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule, 
+    RouterModule
   ],
   providers: [...coreServices,{
     provide: HTTP_INTERCEPTORS,

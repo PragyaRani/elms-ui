@@ -59,6 +59,13 @@ export class CourseService {
       })
     );
   }
+  public GetNotification(): Observable<any> {
+    return this.http.get(`https://localhost:44382/api/v1/elms/notification`).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+  }
 
 
 

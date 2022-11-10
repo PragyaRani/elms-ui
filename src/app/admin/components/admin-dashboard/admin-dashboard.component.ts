@@ -10,7 +10,7 @@ import { ICourse } from 'src/app/models/course.model';
 })
 export class AdminDashboardComponent implements OnInit {
  public Courses : ICourse[];
-  constructor(private courseService: CourseService, private router: Router,) { }
+  constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCourses();
@@ -34,7 +34,7 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate([`/layout/admin/course/${id}`]);
   }
   onAssignCourse(id:number){
-    this
+    this.router.navigate([`/layout/admin/assign/${id}`]);
   }
   onAddCourse(){
     this.router.navigate([`/layout/admin/course`]);

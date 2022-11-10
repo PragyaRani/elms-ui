@@ -1,3 +1,11 @@
-<app-post-login-header [userType]="user['role'] || ''"></app-post-login-header>
-<router-outlet></router-outlet>
-<app-post-login-footer></app-post-login-footer>
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer class="sidenav p-2" mode="side" opened>
+    <app-sidenav [userType]="user['role'] || ''"></app-sidenav>
+  </mat-drawer>
+
+  <div class="main-content ml-2 mr-2">
+    <app-post-login-header [userType]="user['role'] || ''"></app-post-login-header>
+    <router-outlet></router-outlet>
+    <!-- <app-post-login-footer></app-post-login-footer> -->
+  </div>
+</mat-drawer-container>

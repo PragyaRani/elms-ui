@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostLoginLayoutComponent } from './core/component/layout/post-login-layout/post-login-layout.component';
 import { PreLoginLayoutComponent } from './core/component/layout/pre-login-layout/pre-login-layout.component';
 import { AuthGuardService } from './core/helper/authguard.service';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 const LazyAdminModule = () =>
   import('./admin/admin.module').then((response) => response.AdminModule);
@@ -31,7 +31,7 @@ const routes: Routes = [
         loadChildren: LazyAdminModule,
         canActivate: [AuthGuardService],
         // allow access to role matching ADMIN only
-        data: { allowedRoles: ['Admin']}
+        data: { allowedRoles: ['Admin', 'Instructor']}
       },
     ],
   },

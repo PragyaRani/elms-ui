@@ -6,9 +6,19 @@
     <button mat-flat-button color="secondary" aria-label="LOGOUT">
       <mat-icon (click)="onLogout()">logout</mat-icon>
     </button>
-    <button mat-flat-button color="secondary" aria-label="LOGOUT">
-      <mat-icon (click)="openNotification()" matBadge="15" matBadgeColor="warn">home</mat-icon>
-    </button>
-   
+    <ng-container *ngIf="userType === 'Admin' || userType === 'Instructor'">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon (click)="openNotification()" matBadge="{{notifications.length}}" matBadgeColor="warn">notification_important</mat-icon>
+      </button>    
+      <mat-menu #menu="matMenu">
+        <ng-container *ngFor="let notifcn of notifications">
+          <button mat-menu-item>
+            <mat-icon>info</mat-icon>
+            <span>{{notifcn.name}}</span>
+          </button>
+        </ng-container>
+      </mat-menu>
+    </ng-container>
     
-  
+
+    

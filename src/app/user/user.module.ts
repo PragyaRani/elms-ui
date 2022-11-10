@@ -5,14 +5,17 @@ import { UserDashboardComponent } from "./user-dashboard/user-dashboard.componen
 import { UserLayoutComponent } from "./user-layout/user-layout.component";
 import { UserRoutingModule } from "./user.routing";
 import { EnrollCourseComponent } from './enroll-course/enroll-course.component';
+import { RouterModule } from "@angular/router";
+import { CourseOverviewComponent } from './course-overview/course-overview.component';
 
 @NgModule({
     declarations: [
       UserLayoutComponent,
       UserDashboardComponent,
       EnrollCourseComponent,
+      CourseOverviewComponent,
     ],
-    imports: [CommonModule, UserRoutingModule, SharedModule],
+    imports: [CommonModule, UserRoutingModule, SharedModule,RouterModule],
   })
   export class UserModule {}
   

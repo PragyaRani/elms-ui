@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { CourseService } from 'src/app/core/service/course.service';
 
 @Component({
   selector: 'app-post-login-header',
@@ -12,9 +13,18 @@ export class PostLoginHeaderComponent implements OnInit {
   simpleContent = 'S';
   overlap = true;
   disabled = true;
-  constructor(private router: Router, private authService: AuthService) {}
+  notifications:any = [];
+  constructor(private router: Router, private authService: AuthService, private courseService: CourseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  this.courseService.GetNotification().subscribe({
+  next:(res:any) => {
+    this.notifications = res;
+  }, error:(err:any) =>{
+
+  }
+})
+  }
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);

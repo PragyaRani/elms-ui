@@ -6,10 +6,11 @@ import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dash
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 import { EditCourseComponent } from "./edit-course/edit-course.component";
 import { MatTabsModule } from '@angular/material/tabs';
+import { AssignCourseComponent } from './assign-course/assign-course.component';
 const materialComponentModules = [MatTabsModule];
 
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminDashboardComponent, EditCourseComponent],
+  declarations: [AdminLayoutComponent, AdminDashboardComponent, EditCourseComponent, AssignCourseComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

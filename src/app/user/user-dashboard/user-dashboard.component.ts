@@ -33,7 +33,7 @@ export class UserDashboardComponent implements OnInit {
       },
     });
   }
-  // dataSource = USER_DATA;
+  
   public onOpenCourse(courseId:number){
       this.router.navigate([`/layout/user/enrollcourse/${courseId}`]);
   }

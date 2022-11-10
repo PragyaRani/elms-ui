@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate {
         route.data['allowedRoles'].indexOf(user?.role) === -1
       ) {
         const redirectURL =
-          user.role === 'ADMIN'
+          (user.role === 'Admin' || user.role === 'Instructor')
             ? '/layout/admin/dashboard'
             : '/layout/user/dashboard';
         this.router.navigate([redirectURL]);

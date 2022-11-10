@@ -1,27 +1,27 @@
-  <div class="mat-elevation-z1 mt-4">  
-    <mat-table #table [dataSource]="dataSource">
+<div class="mat-elevation-z1 mt-4">  
+    <mat-table #table [dataSource]="Courses">
   
       <!-- Position Column -->
       <ng-container matColumnDef="coursename">
         <mat-header-cell *matHeaderCellDef>Course Name</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.courseName}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="duedate">
         <mat-header-cell *matHeaderCellDef>Due Date</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.created}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.createdDate}} </mat-cell>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="progress">
-        <mat-header-cell *matHeaderCellDef> PROGRESS </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-progress-bar
-        [color]="color"
-        [mode]="mode"
-        [value]="value"
-        [bufferValue]="bufferValue"></mat-progress-bar>
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.author}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="language">
+        <mat-header-cell *matHeaderCellDef>language</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.language}}
         </mat-cell>
       </ng-container>
   
@@ -29,7 +29,7 @@
         <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
         <mat-cell *matCellDef="let element">
             <button mat-flat-button color="secondary" aria-label="OPEN">
-                <mat-icon (click)="onOpenCourse(element.id)">visibility</mat-icon>
+                <mat-icon (click)="onOpenCourse(element.courseId)">visibility</mat-icon>
             </button>
         </mat-cell>
       </ng-container>
