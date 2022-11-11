@@ -63,5 +63,7 @@ export class LoginComponent implements OnInit {
   private clearMessage(): void {
     this.message = { show: false, message: '', type: 'INFO' };
   }
-  
+  onRegister():void {
+    this.router.navigate(['/register']);
+  }
 }

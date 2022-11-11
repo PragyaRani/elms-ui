@@ -9,12 +9,19 @@ import { map } from 'rxjs/operators';
 export class CourseService {
   
   private loading = new BehaviorSubject<boolean>(false);
+  private EnrollCourseSubject: BehaviorSubject<any>;
+  public enrollCourse: Observable<any>;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){
+    this.EnrollCourseSubject = new BehaviorSubject<any>(
+      JSON.parse('{}') // null if the localStorage key not rexist
+    );
+   // this.enrollCourse = this.EnrollCourseSubject.asObservable();
+  }
 
   public getCourseDetails():Observable<any>{
 
-    //https://localhost:44382/api/v1/courseware/catalogue
+   
     return this.http.get('https://localhost:44382/api/v1/courseware/catalogue').pipe(
       map((courseResponse: any) => {
         return courseResponse;
@@ -22,7 +29,7 @@ export class CourseService {
     );
   }
   getCoursebyId(id:number) : Observable<any>{
-    //'https://localhost:44382/api/v1/courseware/catalogue/' +id
+   
     return this.http.get(`https://localhost:44382/api/v1/courseware/catalogue/${id}`).pipe(
       map((courseResponse: any) => {
         return courseResponse;
@@ -47,11 +54,11 @@ export class CourseService {
   public getStudentEnrollCourse(studentId:number): Observable<any> {
     return this.http.get(`https://localhost:44382/api/v1/enrolment/student/${studentId}`).pipe(
       map((courseResponse: any) => {
+        this.EnrollCourseSubject.next(courseResponse);
         return courseResponse;
       })
     );
   }
-  //https://localhost:44382/api/v1/enrolment/courseware/4
   public studentEnrollCourse(payload:any): Observable<any> {
     return this.http.put(`https://localhost:44382/api/v1/enrolment/courseware/${payload.enrollCourseId}`, payload).pipe(
       map((courseResponse: any) => {
@@ -65,6 +72,20 @@ export class CourseService {
         return courseResponse;
       })
     );
+    
+  }
+
+ 
+  public GetEnrollStudentWithCourse(): Observable<any> {
+    return this.http.get(` https://localhost:44382/api/v1/elms/enrollStudents`).pipe(
+      map((courseResponse: any) => {
+        return courseResponse;
+      })
+    );
+    
+  }
+  public get enrollCourseValue(): any {
+    return this.EnrollCourseSubject?.value;
   }
 
 

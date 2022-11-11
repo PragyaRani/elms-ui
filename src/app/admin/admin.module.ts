@@ -8,10 +8,11 @@ import { EditCourseComponent } from "./edit-course/edit-course.component";
 import { MatTabsModule } from '@angular/material/tabs';
 import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { AddTemplateComponent } from './add-template/add-template.component';
+import { ViewEnrolledStudentsComponent } from './view-enrolled-students/view-enrolled-students.component';
 const materialComponentModules = [MatTabsModule];
 
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminDashboardComponent, EditCourseComponent, AssignCourseComponent, AddTemplateComponent],
+  declarations: [AdminLayoutComponent, AdminDashboardComponent, EditCourseComponent, AssignCourseComponent, AddTemplateComponent, ViewEnrolledStudentsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

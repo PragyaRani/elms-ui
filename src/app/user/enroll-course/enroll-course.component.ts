@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { CourseService } from 'src/app/core/service/course.service';
+import { LoaderService } from 'src/app/core/service/loader.service';
 import { ICourse } from 'src/app/models/course.model';
 
 @Component({
@@ -17,19 +18,21 @@ export class EnrollCourseComponent implements OnInit {
     show: false,
   };
   courseId: number;
-  isEnrolled: boolean;
+  isEnrolled: any;
   courseForm: FormGroup;
   constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute,
-    private courseService: CourseService,public authService:AuthService) { }
+    private courseService: CourseService,public authService:AuthService, private loader : LoaderService) { }
 
   ngOnInit(): void {
     this.createCourseForm();
+    this.loader.show();
     this.activatedRoute.params.subscribe((params) => {
       if (params['enrollCourseId']) {
         this.courseId = Number(params['enrollCourseId']);
-        this.isEnrolled = true;
+       
         this.courseService.getCoursebyId(this.courseId).subscribe({
           next: (res: any) => {
+            this.loader.hide();
             if (!res && !res.success) {
               this.message = {
                 show: true,
@@ -41,9 +44,11 @@ export class EnrollCourseComponent implements OnInit {
             this.patchForm(res);
           },
           error: (err: any) => {
+            this.loader.hide();
             console.log(err);
           },
         });
+        this.isEnrollStudent();
       }
     });
 
@@ -85,10 +90,12 @@ export class EnrollCourseComponent implements OnInit {
     });
   }
   onEnrollCourse():any {
+    this.loader.show();
     let student = this.authService.userValue;
       this.courseService.studentEnrollCourse({"studEmail": student.username,
       "enrollCourseId": this.courseId}).subscribe({
         next: (res: any) => {
+          this.loader.hide();
           if (!res && !res.success) {
             this.message = {
               show: true,
@@ -100,6 +107,7 @@ export class EnrollCourseComponent implements OnInit {
           this.onCancel();
         },
         error: (err: any) => {
+          this.loader.hide();
           console.log(err);
           this.message = {
             show: true,
@@ -108,6 +116,12 @@ export class EnrollCourseComponent implements OnInit {
           };
         },
       });
+  }
+
+  public isEnrollStudent(): any {
+    this.isEnrolled = Array.isArray(this.courseService.enrollCourseValue) ?
+       this.courseService.enrollCourseValue.filter(c=> c.id ==this.courseId) : [];
+
   }
 
 }

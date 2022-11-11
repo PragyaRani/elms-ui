@@ -5,6 +5,7 @@ import { AssignCourseComponent } from "./assign-course/assign-course.component";
 import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
 import { AdminLayoutComponent } from "./components/admin-layout/admin-layout.component";
 import { EditCourseComponent } from "./edit-course/edit-course.component";
+import { ViewEnrolledStudentsComponent } from "./view-enrolled-students/view-enrolled-students.component";
 
 const routes: Routes = [
     {
@@ -28,6 +29,10 @@ const routes: Routes = [
         {
           path: 'addtemplate',
           component: AddTemplateComponent,
+        },
+        {
+          path: 'viewenrollstudents',
+          component: ViewEnrolledStudentsComponent,
         }
       ],
     },

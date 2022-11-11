@@ -5,7 +5,7 @@
   <div>
     <div>
       <mat-card>
-        <h2>Enrolled Course</h2>
+        <h2>Enroll Course</h2>
         <form [formGroup]="courseForm">
           <!-- only for EDIT form -->
           <mat-form-field appearance="outline" class="col-12-sm col-4-md col-4-lg col-4-xl p-1">
@@ -81,8 +81,8 @@
   
   
           <div class="row justify-center mb-4">
-            <button mat-raised-button [disabled]="courseForm?.invalid" color="primary"
-              (click)="onEnrollCourse()">Enroll Course</button>
+            <button mat-raised-button [disabled]="courseForm?.invalid || isEnrolled?.length >0" color="primary"
+              (click)="onEnrollCourse()">{{isEnrolled?.length >0 ? 'Enrolled': 'Enroll'}} Course</button>
             <button mat-raised-button color="secondary" (click)="onCancel()">CANCEL</button>
           </div>
         </form>

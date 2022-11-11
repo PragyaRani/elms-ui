@@ -1,0 +1,41 @@
+<div class="mat-elevation-z1 mt-4">  
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!-- Student Column -->
+      <ng-container matColumnDef="Student">
+        <mat-header-cell *matHeaderCellDef>Student</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Email Column -->
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+
+      <!-- Course Column -->
+      <ng-container matColumnDef="Course">
+        <mat-header-cell *matHeaderCellDef>Course</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.course}} </mat-cell>
+      </ng-container>
+
+      <!-- Course Column -->
+      <ng-container matColumnDef="Author">
+        <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+      </ng-container>
+  
+     
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-flat-button color="secondary" aria-label="OPEN">
+                <!-- <mat-icon (click)="onOpenCourse(element.id)">visibility</mat-icon> -->
+            </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>

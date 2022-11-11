@@ -2,18 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/core/service/course.service';
+import { LoaderService } from 'src/app/core/service/loader.service';
 import { ICourse } from 'src/app/models/course.model';
 const CATEGORY: any[] = [
   { value: 'Development', label: 'Development' },
   { value: 'Marketing', label: 'Marketing' },
   { value: 'Cloud Coputing', label: 'Cloud Coputing' },
-  { value: 'Design', label: 'Design' }
+  { value: 'Design', label: 'Design' },
+  { value: 'IT', label: 'IT' },
+  { value: 'Data Science', label: 'Data Science' }
 ];
 const SUBCATEGORY : any[] = [
   {value: 'Cloud Certification', label: 'Cloud Certification'},
   {value: 'Mobile Development', label: 'Mobile Development'},
   {value: 'Digital Marketing', label: 'Digital Marketing'},
-  {value: 'Web Design', label: 'Web Design'}
+  {value: 'Web Design', label: 'Web Design'},
+  { value: 'Software', label: 'Software' },
+  { value: 'Big Data', label: 'Big Data' }
 ]
 const CONTENTS: any[] = [
   { value: 'Video', label: 'Video' },
@@ -29,6 +34,7 @@ const TOPICS: any[] = [
   { value: 'Angular', label: 'Angular' },
   { value: 'Java', label: 'Java' },
   { value: 'C#', label: 'C#' }
+  
 ];
 @Component({
   selector: 'app-edit-course',
@@ -49,15 +55,17 @@ export class EditCourseComponent implements OnInit {
     show: false,
   };
   constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute,
-    private courseService: CourseService) { }
+    private courseService: CourseService, private loader:LoaderService) { }
 
   ngOnInit(): void {
+    this.loader.show();
     this.activatedRoute.params.subscribe((params) => {
       if (params['courseId']) {
         this.courseId = params['courseId'];
         this.onEditMode = true;
         this.courseService.getCoursebyId(this.courseId).subscribe({
           next: (res: any) => {
+            this.loader.hide();
             if (!res && !res.success) {
               this.message = {
                 show: true,
@@ -71,6 +79,7 @@ export class EditCourseComponent implements OnInit {
             this.patchForm(res);
           },
           error: (err: any) => {
+            this.loader.hide();
             console.log(err);
           },
         });
@@ -82,6 +91,7 @@ export class EditCourseComponent implements OnInit {
         console.log(data);
       },
     });
+    this.loader.hide();
   }
   private createCourseForm(): void {
     this.courseForm = this.fb.group({
@@ -114,6 +124,7 @@ export class EditCourseComponent implements OnInit {
     });
   }
   onSubmit(): void {
+    this.loader.show();
     this.clearMessage();
     this.courseService.addCourse({
     courseName: this.courseName.value,
@@ -127,6 +138,7 @@ export class EditCourseComponent implements OnInit {
     ratings: this.rating.value
   }).subscribe({
       next: (res: any) => {
+        this.loader.hide();
         if (res && !res.success) {
           this.message = {
             show: true,
@@ -140,6 +152,7 @@ export class EditCourseComponent implements OnInit {
         });
       },
       error: (err: any) => {
+        this.loader.hide();
         if (err && !err.success)
           this.message = {
             show: true,
