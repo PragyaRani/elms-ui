@@ -38,7 +38,7 @@ export class CourseService {
   }
 
   modifyCourse(payload: any) : Observable<any>{
-    return this.http.put(`https://localhost:44382/api/v1/courseware/course/${payload.id}`, payload).pipe(
+    return this.http.patch(`https://localhost:44382/api/v1/courseware/course/${payload.id}`, payload).pipe(
       map((courseResponse: any) => {
         return courseResponse;
       })

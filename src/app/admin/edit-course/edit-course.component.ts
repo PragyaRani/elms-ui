@@ -74,8 +74,6 @@ export class EditCourseComponent implements OnInit {
               };
               return;
             }
-            // res = res.data.userLoans;
-            console.log(res);
             this.patchForm(res);
           },
           error: (err: any) => {
@@ -132,7 +130,7 @@ export class EditCourseComponent implements OnInit {
     subCategory: this.subcategory.value,
     content: this.content.value,
     author: this.author.value,
-    language: this.author.value,
+    language: this.language.value,
     topicName: this.topicName.value,
     hours: this.hours.value,
     ratings: this.rating.value
@@ -168,7 +166,9 @@ export class EditCourseComponent implements OnInit {
         id:this.courseId,
         courseName: this.courseName?.value,
         hours: this.hours?.value,
-        ratings: this.rating?.value
+        ratings: this.rating?.value,
+        category : this.category?.value,
+        subCategory : this.subcategory.value
       })
       .subscribe({
         next: (res: any) => {
